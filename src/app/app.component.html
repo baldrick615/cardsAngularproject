@@ -1,7 +1,8 @@
 <nav>
   <ul class="pagination">
     <li class="page-item"
-    [ngClass]="{ disabled: currentPage === 0 }">
+
+        [ngClass]="{ disabled: currentPage === 0 }">
       <a (click)="currentPage = currentPage - 1" class="page-link">Prev</a>
     </li>
     <ng-container *ngFor="let image of images; let i = index;">
@@ -21,6 +22,12 @@
 </nav>
 
 <div>
-  <h4>{{ images[currentPage].title }}</h4>
+  <h4 [appClass]=" 'blue' ">{{ images[currentPage].title }}</h4>
   <img [src] = "images[currentPage].url" alt = "image">
 </div>
+
+<!--<div [ngSwitch]="currentPage">-->
+<!--  <div *ngSwitchCase="0">-->
+<!--    Current page is zero.-->
+<!--  </div>-->
+<!--</div>-->
